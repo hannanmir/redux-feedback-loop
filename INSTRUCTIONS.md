@@ -12,6 +12,10 @@ Create your database and tables using the provided `data.sql` file. Start the se
 ```
 npm install
 npm run server
+npm install redux
+npm install react-redux
+npm install react-router-dom
+npm install redux-logger
 ```
 
 Now that the server is running, open a new terminal tab with `cmd + t` and start the react client app.
