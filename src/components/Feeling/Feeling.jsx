@@ -29,19 +29,12 @@ class Feeling extends Component {
     }
 
     handleSubmit = (input) => {
-        if (this.state.newInput.feeling === 0) {
+        if (this.state.newInput.understanding === 0) {
             swal('Please select a value!');
-        } else {
-            this.props.dispatch({type: 'EDIT_FALSE'})
+        } else if (this.props.reduxState.editReducer === false) {
             this.props.dispatch({type: 'ADD_FEELING', payload:input})
-            this.props.history.push('/understanding')
-        }
-    }
-
-    returnToReview = (input) => {
-        if (this.state.newInput.feeling === 0) {
-            swal('Please select a value!');
-        } else {
+            this.props.history.push('/understanding')            
+        } else if (this.props.reduxState.editReducer === true) {
             this.props.dispatch({type: 'EDIT_FALSE'})
             this.props.dispatch({type: 'ADD_FEELING', payload:input})
             this.props.history.push('/review')
@@ -61,10 +54,9 @@ class Feeling extends Component {
         } else if (this.props.reduxState.editReducer === true) {
             return (
                 <>
-                    <h1>EDITING</h1>
                     <h3>How are you feeling today?</h3>
                     <Select options={options} placeholder="Feeling?" onChange= {(event) => this.handleChangeFeeling(event)}/>
-                    <Button variant="contained" size="small" color="primary" onClick={() => {this.returnToReview(this.state.newInput.feeling)}}>Submit & Return to Review</Button>
+                    <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.feeling)}}>Submit & Return to Review</Button>
                 </>
             )
         }

@@ -20,7 +20,7 @@ class Supported extends Component {
         }
     }
 
-    handleChangeSupported = (event) => {
+    handleChangeSupporting = (event) => {
         this.setState({
             newInput: {
                 support: event.value
@@ -31,20 +31,34 @@ class Supported extends Component {
     handleSubmit = (input) => {
         if (this.state.newInput.support === 0) {
             swal('Please select a value!');
-        } else {
-        this.props.dispatch({type: 'ADD_SUPPORTING', payload:input})
-        this.props.history.push('/comments')
+        } else if (this.props.reduxState.editReducer === false) {
+            this.props.dispatch({type: 'ADD_SUPPORTING', payload:input})
+            this.props.history.push('/comments')            
+        } else if (this.props.reduxState.editReducer === true) {
+            this.props.dispatch({type: 'EDIT_FALSE'})
+            this.props.dispatch({type: 'ADD_SUPPORTING', payload:input})
+            this.props.history.push('/review')
         }
     }
 
     render() {
-        return (
-            <>
-                <h3>How well are you being supported?</h3>
-                <Select options={options} placeholder="Supported?" onChange= {(event) => this.handleChangeSupported(event)}/>
-                <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.support)}}>Submit</Button>
-            </>
-        );
+        if (this.props.reduxState.editReducer === false) {
+            return (
+                <>
+                    <h3>How well are you being supported?</h3>
+                    <Select options={options} placeholder="Supported?" onChange= {(event) => this.handleChangeSupporting(event)}/>
+                    <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.support)}}>Submit</Button>
+                </>
+            );
+        } else if (this.props.reduxState.editReducer === true) {
+            return (
+                <>
+                    <h3>How well are you being supported?</h3>
+                    <Select options={options} placeholder="Supported?" onChange= {(event) => this.handleChangeSupporting(event)}/>
+                    <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.support)}}>Submit & Return to Review</Button>
+                </>
+            )
+        }
     }
 }
 

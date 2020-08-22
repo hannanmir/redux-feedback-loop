@@ -31,20 +31,34 @@ class Understanding extends Component {
     handleSubmit = (input) => {
         if (this.state.newInput.understanding === 0) {
             swal('Please select a value!');
-        } else {
-        this.props.dispatch({type: 'ADD_UNDERSTANDING', payload:input})
-        this.props.history.push('/supporting')
+        } else if (this.props.reduxState.editReducer === false) {
+            this.props.dispatch({type: 'ADD_UNDERSTANDING', payload:input})
+            this.props.history.push('/supporting')            
+        } else if (this.props.reduxState.editReducer === true) {
+            this.props.dispatch({type: 'EDIT_FALSE'})
+            this.props.dispatch({type: 'ADD_UNDERSTANDING', payload:input})
+            this.props.history.push('/review')
         }
     }
 
     render() {
-        return (
-            <>
-                <h3>How well are you understanding the content?</h3>
-                <Select options={options} placeholder="Understanding?" onChange= {(event) => this.handleChangeUnderstanding(event)}/>
-                <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.understanding)}}>Submit</Button>
-            </>
-        );
+        if (this.props.reduxState.editReducer === false) {
+            return (
+                <>
+                    <h3>How well are you understanding the content?</h3>
+                    <Select options={options} placeholder="Understanding?" onChange= {(event) => this.handleChangeUnderstanding(event)}/>
+                    <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.understanding)}}>Submit</Button>
+                </>
+            );
+        } else if (this.props.reduxState.editReducer === true) {
+            return (
+                <>
+                    <h3>How are you feeling today?</h3>
+                    <Select options={options} placeholder="Understanding?" onChange= {(event) => this.handleChangeUnderstanding(event)}/>
+                    <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.understanding)}}>Submit & Return to Review</Button>
+                </>
+            )
+        }
     }
 }
 
