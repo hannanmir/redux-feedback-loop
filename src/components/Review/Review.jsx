@@ -20,14 +20,42 @@ class Review extends Component {
         })
     }
 
+    editFeeling = () => {
+        this.props.dispatch({type: 'EDIT_TRUE'})
+        this.props.history.push('/')
+    }
+
+    editUnderstanding = () => {
+        this.props.dispatch({type: 'EDIT_TRUE'})
+        this.props.history.push('/understanding')
+    }
+    
+    editSupporting = () => {
+        this.props.dispatch({type: 'EDIT_TRUE'})
+        this.props.history.push('/supporting')
+    }
+
+    editComments = () => {
+        this.props.dispatch({type: 'EDIT_TRUE'})
+        this.props.history.push('/comments')
+    }
+
     render() {
         return (
             <>
                 <h3>Review Your Feedback</h3>
-                <p>Feeling: {this.props.reduxState.inputReducer.feeling}</p>
-                <p>Understanding: {this.props.reduxState.inputReducer.understanding}</p>
-                <p>Supported: {this.props.reduxState.inputReducer.support}</p>
-                <p>Comments: {this.props.reduxState.inputReducer.comments}</p>
+                <p>
+                    <Button variant="contained" size="small" onClick={() => this.editFeeling()}>Edit</Button>   Feeling: {this.props.reduxState.inputReducer.feeling}
+                </p>
+                <p>
+                    <Button variant="contained" size="small" onClick={() => this.editUnderstanding()}>Edit</Button>   Understanding: {this.props.reduxState.inputReducer.understanding}
+                </p>
+                <p>
+                    <Button variant="contained" size="small" onClick={() => this.editSupporting()}>Edit</Button>   Supported: {this.props.reduxState.inputReducer.support}
+                </p>
+                <p>
+                    <Button variant="contained" size="small" onClick={() => this.editComments()}>Edit</Button>   Comments: {this.props.reduxState.inputReducer.comments}
+                </p>
                 <Button variant="contained" size="small" color="primary" onClick={() => this.handleReview()}>Submit Feedback</Button>
             </>
         );

@@ -24,9 +24,19 @@ const inputReducer = (state = {}, action) => {
     return state;
 };
 
+const editReducer = (state = false, action) => {
+    if (action.type === 'EDIT_TRUE') {
+        return (true)
+    } else if (action.type === 'EDIT_FALSE') {
+        return (false)
+    }
+    return state;
+};
+
 const store = createStore(
     combineReducers({
         inputReducer,
+        editReducer,
     }),
     applyMiddleware(logger)
 );

@@ -32,19 +32,42 @@ class Feeling extends Component {
         if (this.state.newInput.feeling === 0) {
             swal('Please select a value!');
         } else {
-        this.props.dispatch({type: 'ADD_FEELING', payload:input})
-        this.props.history.push('/understanding')
+            this.props.dispatch({type: 'EDIT_FALSE'})
+            this.props.dispatch({type: 'ADD_FEELING', payload:input})
+            this.props.history.push('/understanding')
         }
     }
 
+    returnToReview = (input) => {
+        if (this.state.newInput.feeling === 0) {
+            swal('Please select a value!');
+        } else {
+            this.props.dispatch({type: 'EDIT_FALSE'})
+            this.props.dispatch({type: 'ADD_FEELING', payload:input})
+            this.props.history.push('/review')
+        }
+    }
+
+
     render() {
-        return (
-            <>
-                <h3>How are you feeling today?</h3>
-                <Select options={options} placeholder="Feeling?" onChange= {(event) => this.handleChangeFeeling(event)}/>
-                <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.feeling)}}>Submit</Button>
-            </>
-        );
+        if (this.props.reduxState.editReducer === false) {
+            return (
+                <>
+                    <h3>How are you feeling today?</h3>
+                    <Select options={options} placeholder="Feeling?" onChange= {(event) => this.handleChangeFeeling(event)}/>
+                    <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.feeling)}}>Submit</Button>
+                </>
+            );
+        } else if (this.props.reduxState.editReducer === true) {
+            return (
+                <>
+                    <h1>EDITING</h1>
+                    <h3>How are you feeling today?</h3>
+                    <Select options={options} placeholder="Feeling?" onChange= {(event) => this.handleChangeFeeling(event)}/>
+                    <Button variant="contained" size="small" color="primary" onClick={() => {this.returnToReview(this.state.newInput.feeling)}}>Submit & Return to Review</Button>
+                </>
+            )
+        }
     }
 }
 
