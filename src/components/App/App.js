@@ -10,6 +10,7 @@ import Understanding from '../Understanding/Understanding.jsx';
 import Supported from '../Supported/Supported.jsx';
 import Comments from '../Comments/Comments.jsx';
 import Review from '../Review/Review.jsx';
+import Success from '../Success/Success.jsx';
 import Admin from '../Admin/Admin.jsx';
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
           <Route exact path="/supporting" component={Supported} />
           <Route exact path="/comments" component={Comments} />
           <Route exact path="/review" component={Review} />
+          <Route exact path="/success" component={Success} />
           <Route path="/admin" component={Admin} />
         </div>
       </Router>

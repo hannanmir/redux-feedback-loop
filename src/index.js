@@ -17,6 +17,8 @@ const inputReducer = (state = {}, action) => {
         return {...state, support: action.payload};
     } else if (action.type === 'ADD_COMMENTS') {
         return {...state, comments: action.payload};
+    } else if (action.type === 'SUCCESS') {
+        return {};
     }
     console.log(state);
     return state;

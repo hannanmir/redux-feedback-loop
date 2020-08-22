@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Button } from '@material-ui/core';
+import axios from 'axios';
 
 class Review extends Component {
+    handleReview = () => {
+        console.log('Reviewing');
+        this.props.history.push('/success')
+    }
+
     render() {
         return (
             <>

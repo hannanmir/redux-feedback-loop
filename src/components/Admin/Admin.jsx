@@ -7,6 +7,7 @@ class Admin extends Component {
     render() {
         return (
             <>
+                <h3>You shouldnt be here!</h3>
             </>
         );
     }
