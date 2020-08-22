@@ -7,17 +7,23 @@ import swal from '@sweetalert/with-react';
 
 class Review extends Component {
     handleReview = () => {
-        console.log('review', this.props.reduxState.inputReducer);
-        axios.post('/feedback', this.props.reduxState.inputReducer)
-        .then( () => {
-            swal("Feedback Submitted!", {
-                buttons: false,
-                timer: 1000,
+        if (this.props.reduxState.inputReducer.feeling === 0 || this.props.reduxState.inputReducer.feeling === undefined || 
+            this.props.reduxState.inputReducer.understanding === 0 || this.props.reduxState.inputReducer.understanding === undefined ||
+            this.props.reduxState.inputReducer.support === 0 || this.props.reduxState.inputReducer.support === undefined ) {
+            swal('Please make sure that all fields have values!');
+        } else {
+            console.log('review', this.props.reduxState.inputReducer);
+            axios.post('/feedback', this.props.reduxState.inputReducer)
+            .then( () => {
+                swal("Feedback Submitted!", {
+                    buttons: false,
+                    timer: 1000,
+                })
+                this.props.history.push('/success')
+            }).catch( (error) => {
+                console.log('error in POST', error);
             })
-            this.props.history.push('/success')
-        }).catch( (error) => {
-            console.log('error in POST', error);
-        })
+        }
     }
 
     editFeeling = () => {
