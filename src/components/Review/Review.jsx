@@ -6,8 +6,13 @@ import axios from 'axios';
 
 class Review extends Component {
     handleReview = () => {
-        console.log('Reviewing');
-        this.props.history.push('/success')
+        console.log('review', this.props.reduxState.inputReducer);
+        axios.post('/feedback', this.props.reduxState.inputReducer)
+        .then( () => {
+            this.props.history.push('/success')
+        }).catch( (error) => {
+            console.log('error in POST', error);
+        })
     }
 
     render() {
