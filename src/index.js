@@ -8,9 +8,23 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger'
 
+const inputReducer = (state = {}, action) => {
+    if (action.type === 'ADD_FEELING') {
+        return {...state, feeling: action.payload};
+    } else if (action.type === 'ADD_UNDERSTANDING') {
+        return {...state, understanding: action.payload};
+    } else if (action.type === 'ADD_SUPPORTING') {
+        return {...state, support: action.payload};
+    } else if (action.type === 'ADD_COMMENTS') {
+        return {...state, comments: action.payload};
+    }
+    console.log(state);
+    return state;
+};
+
 const store = createStore(
     combineReducers({
-
+        inputReducer,
     }),
     applyMiddleware(logger)
 );
