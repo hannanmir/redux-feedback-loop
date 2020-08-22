@@ -21,8 +21,6 @@ class Comments extends Component {
     }
 
     handleSubmit = (input) => {
-        // if (this.state.newInput.comments === '') {
-        //     swal('Please select a value!');
         if (this.props.reduxState.editReducer === false) {
             this.props.dispatch({type: 'ADD_COMMENTS', payload:input})
             this.props.history.push('/review')            
