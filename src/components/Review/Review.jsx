@@ -3,12 +3,17 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import axios from 'axios';
+import swal from '@sweetalert/with-react';
 
 class Review extends Component {
     handleReview = () => {
         console.log('review', this.props.reduxState.inputReducer);
         axios.post('/feedback', this.props.reduxState.inputReducer)
         .then( () => {
+            swal("Feedback Submitted!", {
+                buttons: false,
+                timer: 1000,
+            })
             this.props.history.push('/success')
         }).catch( (error) => {
             console.log('error in POST', error);
