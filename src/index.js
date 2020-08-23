@@ -8,6 +8,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger'
 
+// Main reducer to add new inputs to one object, when submitting it clears it back to an empty object
 const inputReducer = (state = {}, action) => {
     if (action.type === 'ADD_FEELING') {
         return {...state, feeling: action.payload};
@@ -24,6 +25,7 @@ const inputReducer = (state = {}, action) => {
     return state;
 };
 
+// Reducer to toggle between edit mode and regular mode. 
 const editReducer = (state = false, action) => {
     if (action.type === 'EDIT_TRUE') {
         return (true)

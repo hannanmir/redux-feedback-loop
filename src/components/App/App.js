@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-// Routing
+// Routing and importing all the neccesary components
 import { HashRouter as Router, Route } from 'react-router-dom'
 import Feeling from '../Feeling/Feeling.jsx';
 import Understanding from '../Understanding/Understanding.jsx';
@@ -20,9 +20,6 @@ class App extends Component {
             <h1 className="App-title">Feedback!</h1>
             <h4><i>Help us help you!</i></h4>
           </header>
-          <br/>
-          {/* <Route path="/" render={ props => ( 
-            <Feeling handleChangeFor={this.handleChangeFor} {...props} /> )} /> */}
           <Route exact path="/" component={Feeling} />
           <Route exact path="/understanding" component={Understanding} />
           <Route exact path="/supporting" component={Supported} />
