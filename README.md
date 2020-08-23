@@ -14,7 +14,8 @@ This app is a feedback form. It receives feedback through four metrics: how the 
 
 ## Screen Shot
 
-![Screenshot](https://github.com/hannanmir/react-gallery/blob/master/public/images/Screenshot.png)
+![Feeling](https://github.com/hannanmir/redux-feedback-loop/blob/master/public/images/Feeling.png)
+![Admin](https://github.com/hannanmir/redux-feedback-loop/blob/master/public/images/Admin%20View.png)
 
 ### Prerequisites
 
