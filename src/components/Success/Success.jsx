@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 
 class Supported extends Component {
+    // Sets the redux state for the feedback object back to an empty object and routes back to the first page
     handleSuccess = () => {
         this.props.dispatch({type: 'SUCCESS'})
         this.props.history.push('/')

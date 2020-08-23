@@ -7,6 +7,8 @@ import swal from '@sweetalert/with-react';
 
 class Review extends Component {
     handleReview = () => {
+        // checks to see if any values are empty or undefined in case the user skipped steps or refreshed
+        // If all needed values are present then submits the feedback to the database
         if (this.props.reduxState.inputReducer.feeling === 0 || this.props.reduxState.inputReducer.feeling === undefined || 
             this.props.reduxState.inputReducer.understanding === 0 || this.props.reduxState.inputReducer.understanding === undefined ||
             this.props.reduxState.inputReducer.support === 0 || this.props.reduxState.inputReducer.support === undefined ) {
@@ -25,7 +27,7 @@ class Review extends Component {
             })
         }
     }
-
+// Toggles edit mode and routes to whatever specific value the user needs to edit
     editFeeling = () => {
         this.props.dispatch({type: 'EDIT_TRUE'})
         this.props.history.push('/')
