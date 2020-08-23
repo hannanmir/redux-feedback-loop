@@ -7,6 +7,7 @@ import FlagIcon from '@material-ui/icons/Flag';
 import swal from '@sweetalert/with-react';
 
 class ArtistListItem extends Component {
+    // DELETE request to remove feedback from database, warns user before hand
     deleteFeedback = (id) => {
         swal({
             title: "Are you sure?",
@@ -30,6 +31,7 @@ class ArtistListItem extends Component {
         })
     }
 
+    // Allows admin to flag a feedback for further review 
     flagFeedback = (id) => {
         axios.put(`/feedback/flag/${id}`)
         .then( () => {
@@ -40,6 +42,7 @@ class ArtistListItem extends Component {
     }
 
     render() {
+        // Conditional rendering if a feedback is flagged or not
         if (this.props.feedback.flagged === true) {
             return (
                 <tr>

@@ -8,6 +8,7 @@ body {
 }
 
 .App-header {
+  /* Prime blue! */
   background-color: #07AA9E;
   min-height: 70px;
   padding: 20px;
@@ -22,6 +23,7 @@ body {
   font-size: large;
 }
 
+/* Centers the table */
 table {
   margin-left: auto;
   margin-right: auto;
