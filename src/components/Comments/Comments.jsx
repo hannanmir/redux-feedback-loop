@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
-import swal from '@sweetalert/with-react';
 
 class Comments extends Component {
     state= {

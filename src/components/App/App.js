@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
 
 // Routing
-import { connect } from 'react-redux';
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
+import { HashRouter as Router, Route } from 'react-router-dom'
 import Feeling from '../Feeling/Feeling.jsx';
 import Understanding from '../Understanding/Understanding.jsx';
 import Supported from '../Supported/Supported.jsx';
@@ -14,10 +12,6 @@ import Success from '../Success/Success.jsx';
 import Admin from '../Admin/Admin.jsx';
 
 class App extends Component {
-  componentDidMount() {
-    console.log('App Mounted');
-  }
-
   render() {
     return (
       <Router >
