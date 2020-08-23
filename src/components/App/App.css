@@ -2,11 +2,16 @@
   text-align: center;
 }
 
+body {
+  background-color: blanchedalmond;
+  text-align: center;
+}
+
 .App-header {
-  background-color: #033076;
+  background-color: #07AA9E;
   min-height: 70px;
   padding: 20px;
-  color: white;
+  color: black;
 }
 
 .App-title {
@@ -15,5 +20,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
 }
 
