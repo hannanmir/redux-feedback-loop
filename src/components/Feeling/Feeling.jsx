@@ -59,6 +59,7 @@ class Feeling extends Component {
             return (
                 <>
                     <h3>How are you feeling today?</h3>
+                    <h4>Inital Response: {this.props.reduxState.inputReducer.feeling}</h4>
                     <Select options={options} placeholder="Feeling?" onChange= {(event) => this.handleChangeFeeling(event)}/>
                     <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.feeling)}}>Submit & Return to Review</Button>
                 </>

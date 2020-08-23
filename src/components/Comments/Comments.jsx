@@ -46,6 +46,7 @@ class Comments extends Component {
             return (
                 <>
                     <h3>Any comments you would like to share?</h3>
+                    <h4>Inital Comments: {this.props.reduxState.inputReducer.comments}</h4>
                     <TextField id="standard-basic" label="Comments" onChange= {(event) => this.handleChangeComments(event)} />
                     <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.comments)}}>Submit & Return to Review</Button>
                 </>

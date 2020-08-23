@@ -12,7 +12,7 @@ class Review extends Component {
         if (this.props.reduxState.inputReducer.feeling === 0 || this.props.reduxState.inputReducer.feeling === undefined || 
             this.props.reduxState.inputReducer.understanding === 0 || this.props.reduxState.inputReducer.understanding === undefined ||
             this.props.reduxState.inputReducer.support === 0 || this.props.reduxState.inputReducer.support === undefined ) {
-            swal('Please make sure that all fields have values!');
+            swal('Please make sure that all fields have values and are not 0!');
         } else {
             console.log('review', this.props.reduxState.inputReducer);
             axios.post('/feedback', this.props.reduxState.inputReducer)

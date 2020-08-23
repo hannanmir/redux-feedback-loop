@@ -59,6 +59,7 @@ class Supported extends Component {
             return (
                 <>
                     <h3>How well are you being supported?</h3>
+                    <h4>Inital Response: {this.props.reduxState.inputReducer.support}</h4>
                     <Select options={options} placeholder="Supported?" onChange= {(event) => this.handleChangeSupporting(event)}/>
                     <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.support)}}>Submit & Return to Review</Button>
                 </>

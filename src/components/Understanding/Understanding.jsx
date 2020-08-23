@@ -59,6 +59,7 @@ class Understanding extends Component {
             return (
                 <>
                     <h3>How are you feeling today?</h3>
+                    <h4>Inital Response: {this.props.reduxState.inputReducer.understanding}</h4>
                     <Select options={options} placeholder="Understanding?" onChange= {(event) => this.handleChangeUnderstanding(event)}/>
                     <Button variant="contained" size="small" color="primary" onClick={() => {this.handleSubmit(this.state.newInput.understanding)}}>Submit & Return to Review</Button>
                 </>
