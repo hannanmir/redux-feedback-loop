@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 
+// Setting inital state as an empty string
 class Comments extends Component {
     state= {
         newInput: {
@@ -11,6 +12,7 @@ class Comments extends Component {
         }
     }
 
+    // Changes state to the user's input
     handleChangeComments = (event) => {
         this.setState({
             newInput: {
@@ -30,6 +32,7 @@ class Comments extends Component {
         }
     }
 
+    // Conditional rendering based on in edit mode or not 
     render() {
         if (this.props.reduxState.editReducer === false) {
             return (

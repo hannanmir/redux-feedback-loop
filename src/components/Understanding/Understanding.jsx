@@ -5,6 +5,7 @@ import Select from 'react-select'
 import { Button } from '@material-ui/core';
 import swal from '@sweetalert/with-react';
 
+// The options that will show up for the select component
 const options = [
     { value: 1, label: '1' },
     { value: 2, label: '2' },
@@ -13,6 +14,7 @@ const options = [
     { value: 5, label: '5' },
   ]
 
+  // Setting inital state as 0 
 class Understanding extends Component {
     state= {
         newInput: {
@@ -20,6 +22,7 @@ class Understanding extends Component {
         }
     }
 
+    // Changes state to the user's input
     handleChangeUnderstanding = (event) => {
         this.setState({
             newInput: {
@@ -28,6 +31,7 @@ class Understanding extends Component {
         })
     }
 
+    // If the user submits without selecting an value it alerts, also routes to review or next component depending on edit mode
     handleSubmit = (input) => {
         if (this.state.newInput.understanding === 0) {
             swal('Please select a value!');
@@ -41,6 +45,7 @@ class Understanding extends Component {
         }
     }
 
+    // Conditional rendering based on in edit mode or not 
     render() {
         if (this.props.reduxState.editReducer === false) {
             return (
