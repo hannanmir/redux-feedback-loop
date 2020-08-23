@@ -33,7 +33,7 @@ class Feeling extends Component {
 
     // If the user submits without selecting an value it alerts, also routes to review or next component depending on edit mode
     handleSubmit = (input) => {
-        if (this.state.newInput.understanding === 0) {
+        if (this.state.newInput.feeling === 0) {
             swal('Please select a value!');
         } else if (this.props.reduxState.editReducer === false) {
             this.props.dispatch({type: 'ADD_FEELING', payload:input})
