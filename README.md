@@ -56,7 +56,7 @@ Link to software that is required to install the app (e.g. node).
 - Material-UI
 
 ## Acknowledgement
-Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. Special thanks to my instrucors [Dane Smith](https://github.com/DoctorHowser) and [Kris Szafranski](https://github.com/kdszafranski).
+Thanks to [Prime Digital Academy](www.primeacademy.io) who equipped and helped me to make this application a reality. Special thanks to my instructors [Dane Smith](https://github.com/DoctorHowser) and [Kris Szafranski](https://github.com/kdszafranski).
 
 ## Support
 If you have suggestions or issues, please email me at [hannanmir2@gmail.com](mailto:hannanmir2@gmail.com).
